@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./login-style.css">
+</head>
+<body>
+    <div id="container">
+        <div class="sub-cont-one">
+            <a href="./index.html"><img src="./Images/Bedbath&beyond.svg" alt=""></a>
+            <div class="left-data">
+                <p>Sign in</p>
+                <p>If you don't have an account register</p>
+                <p>You can <a href="#">Register here !</a></p>
+                <p class="mail-para">Email</p>
+                <span><img src="./Images/Vector.svg" alt=""><input type="email" placeholder="Enter your email address" id="email" /></span>
+                <hr>
+                <p>Password</p>
+                <span><img src="./Images/Vector-pass.svg" alt=""><input type="password" placeholder="Enter your Password" id="pass" /></span>
+                <hr>
+                <div id="rem-me">
+                    <div><input type="checkbox">Remember me</div>
+                    <div>Forgot Password</div>
+                </div>
+                <p id="login">Login</p>
+                <p id="continue">or continue with</p>
+                <div id="logos">
+                    <img class="one" src="./Images/Facebook_f_logo_(2019).svg" alt=""></span>
+                    <img class="two" src="./Images/Apple_Store_iOS.svg" alt=""></span>
+                    <img class="three" src="./Images/Google_Plus_logo_(2015-2019).svg" alt=""></span>
+                </div>
+            </div>
+        </div>
+        <div class="sub-cont-two">
+            <div class="right-data">
+                <span><img src="./Images/Vector-call.svg" alt=""> +91 ---</span>
+                <img src="./Images/Saly-10.svg" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+
+    let data = JSON.parse(localStorage.getItem("users")) || [];
+    let loginBtn = document.getElementById("login");
+    let userEmail = document.getElementById("email");
+    let password = document.getElementById("pass");
+
+    loginBtn.addEventListener("click", () => {
+        let userData = {
+            email: userEmail.value,
+            password: password.value
+        }
+
+        if(userData.email == "" || userData.password == "") loginBtn.innerText = "OOPS!!";
+        else {
+            if(data.length == 0 && userData.email.value != "" && userData.password.value != "") {
+                loginBtn.innerText = "Registered Successfully. GoTo HomePage.";
+                data.push(userData);
+                localStorage.setItem("users", JSON.stringify(data));
+            }
+
+            data.forEach((element) => {
+                if(element.email === userData.email && element.password == userData.password) {
+                    loginBtn.innerText = "Login Successfull. GoTo HomePage.";
+                }
+                else if(element.email === userData.email) {
+                    loginBtn.innerText = "Wrong Password. Try Again"
+                }
+                else {
+                    loginBtn.innerText = "Registered Successfully. GoTo HomePage.";
+                    data.push(userData);
+                    localStorage.setItem("users", JSON.stringify(data));
+                }
+            })
+        }   
+    })
+</script>
