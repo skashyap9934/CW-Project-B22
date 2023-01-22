@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.nav > h1 {
+    text-align: center;
+    box-shadow: rgba(240, 9, 206, 0.35) 0px 5px 15px;
+    margin: 0;
+    padding: 15px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #1c97c7;
+}
+
+table {
+    margin: auto;
+    margin-top: 50px;
+    text-align: left;
+    padding-bottom: 50px;
+}
+
+th, tr, td {
+    width: 250px;
+    background-color: #1c97c7;
+    color: white;
+    padding-left: 25px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+td {
+    background-color: rgb(9, 82, 82);
+    height: 50px;
+    color: white;
+}
