@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheckOut Page</title>
+    <link rel="stylesheet" href="co-style.css">
+</head>
+<body>
+
+    <div id="header">
+        <div>
+            <a href="./index.html"><img src="./Images/Bedbath&beyond.svg" alt=""></a>
+            <a href="#"><h3 class="buy">buybuy BABY</h3></a>
+            <a href="#"><h4 class="buy">harmon</h4></a>
+        </div>
+        <div>
+            <a href="#"><h4>🛍️ <span>Same Day Delivery | order by null</span></h4></a>
+            <a href="#"><h4>🏪 <span>Store Pickup | Find a store ›</span></h4></a>
+        </div>
+    </div>
+
+    <div id="nav">
+        <div id="inp">
+            <a href="./index.html"><img src="./Images/Bedbath&beyond.svg" alt="" id="logo"></a>
+        </div>
+        <div>
+            <input type="text" placeholder="🔍 What product can we help you with?"/>
+        </div>
+        <div id="login">
+            <div>
+                <a href="./login.html" id="sign-in">
+                <h2>welcome</h2>
+                <img src="./Images/profile-svgrepo-com.svg" alt="">
+                </a>
+            </div>
+            <div>
+                <a href="./cart.html">
+                    <img src="./Images//shopping-cart-free-5-svgrepo-com.svg" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div id="various-links">
+        <a href="#">bedding</a>
+        <a href="#">bath</a>
+        <a href="#">kitchen</a>
+        <a href="#">dining</a>
+        <a href="#">storage & cleaning</a>
+        <a href="#">home decor</a>
+        <a href="#">curtains & window</a>
+        <a href="#">furniture</a>
+        <a href="#">health & beauty</a>
+        <a href="#">outdoor</a>
+        <a href="#">luggage pet & more</a>
+        <a href="#">gifts</a>
+        <a href="#">baby & kids</a>
+        <a href="#">shop by brand</a>
+        <a href="#">coll</a>
+    </div>
+
+    <hr>
+
+    <h1 style="text-align: center;">Total Sopping Amount: <span id="total-cost"></span></h1>
+
+    <form action="">
+        <input type="text" placeholder="Enter Your Name" id="name" />
+        <input type="number" placeholder="Enter Your Mobile Number" id="mob" />
+        <input type="text" placeholder="Enter The Relevent Address" id="add" />
+        <input type="text" id="captcha">
+        <input type="submit" value="Submit" id="submit" />
+    </form>
+
+    <div class="foot">
+        <table>
+            <thead>
+                <tr>
+                    <th>LET'S CONNECT</th>
+                    <th>SHIPPING & RETURNS</th>
+                    <th>SERVICES & SOLUTIONS</th>
+                    <th>COMPANY INFO</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td class="social-links">
+                        <li><a href="https://www.instagram.com/"><img src="./Images/instagram-1-svgrepo-com.svg" alt=""></a></li>
+                        <li><a href="https://www.facebook.com"><img src="./Images/facebook-color-svgrepo-com.svg" alt=""></a></li>
+                        <li><a href="https://www.twitter.com"><img src="./Images/twitter-color-svgrepo-com.svg" alt=""></a></li>
+                        <li><a href="https://www.youtube.com"><img src="./Images/youtube-color-svgrepo-com.svg" alt=""></a></li>
+                    </td>
+
+                    <td>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Store Pickup</a></li>
+                        <li><a href="#">Same Day Delivery</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Product Recall Information</a></li>
+                        <li><a href="#">Rebates</a></li>
+                        <li><a href="#">Price Match Promise</a></li>
+                    </td>
+
+                    <td>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Gift Packaging</a></li>
+                        <li><a href="#">Gift Cards</a></li>
+                        <li><a href="#">Check Reward Certificate Balance</a></li>
+                        <li><a href="#">Marketplace</a></li>
+                        <li><a href="#">Pay with Afterpay</a></li>
+                        <li><a href="#">Pay with Klarna</a></li>
+                        <li><a href="#">Pay with WelcomePay</a></li>
+                    </td>
+
+                    <td >
+                        <li><a href="#">Advertise with Us</a></li>
+                        <li><a href="#">Potential Suppliers</a></li>
+                        <li><a href="#">Business Direct</a></li>
+                        <li><a href="#">Environmental Social Governance</a></li>
+                        <li><a href="#">Media Relations</a></li>
+                        <li><a href="#">Invest Relations</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Account Security</a></li>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>© 2022 Bed Bath & Beyond Inc. and its subsidiaries.</p>
+    </div>
+
+    </body>
+</html>
+
+
+<script>
+    let cartData = JSON.parse(localStorage.getItem("cart-data"));
+    let totalAmt = document.getElementById("total-cost");
+    var sum = 0;
+
+    let order = JSON.parse(localStorage.getItem("order")) || [];
+
+    totalAmt.style.color = "teal";
+    totalCost(cartData);
+    function totalCost(data) {
+        totalAmt.innerHTML = null;
+        data.forEach((product) => {
+            sum += (product.price * product.quantity);
+        })
+        totalAmt.innerText = sum;
+    }
+
+    let captcha = document.getElementById("captcha");
+    captcha.placeholder = "Please Enter The Amount That You Have To Pay";
+
+    let form = document.querySelector("form");
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        let name = document.getElementById("name");
+        let mob = document.getElementById("mob");
+        let add = document.getElementById("add");
+        let captcha = document.getElementById("captcha");
+
+        let individualOrder = {
+            name: name.value,
+            mob: mob.value,
+            add: add.value,
+            amt: captcha.value
+        };
+
+        if(name.value != "" && mob.value != "" && add != "" && captcha.value == sum) {
+            order.push(individualOrder);
+            localStorage.setItem("order", JSON.stringify(order));
+            alert("Order Placed Successfully");
+        }
+        else if(name.value === "" || mob.value === "" || add.value === "") alert("Invalid Info...");
+        else if(captcha != sum) alert("Wrong Amount. Payment Fail.");
+        else alert("Invalid Data");
+    })
+
+</script>

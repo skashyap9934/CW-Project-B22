@@ -1,0 +1,212 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    background-color: #00008B;
+    display: flex;
+    margin: auto;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#header > div > a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+}
+
+#header > div {
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#header > div > a > img {
+    margin-top: 7px;
+    width: 60px;
+    background-color: #e7e7ed;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+span:hover, .buy:hover {
+    text-decoration: underline;
+}
+
+#various-links > a:hover {
+    text-decoration: underline;
+    color: #08779c;
+}
+
+#nav {
+    display: flex;
+    margin: auto;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(239, 236, 236);
+}
+
+#login {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 170px;
+    color: rgb(8, 8, 172);
+}
+
+#sign-in {
+    display: flex;
+    text-decoration: none;
+}
+
+#sign-in:hover {
+    text-decoration: underline;
+}
+
+#sign-in > img {
+    margin-left: 15px;
+    margin-right: 10px;
+}
+
+#nav > div > input {
+    width: 550px;
+    padding: 15px;
+    border-radius: 50px;
+}
+
+#nav > div > input::placeholder {
+    text-align: center;
+}
+
+#nav img {
+    width: 30px;
+}
+
+#inp > a > img {
+    width: 100px;
+    margin-top: 15px;
+}
+
+#various-links {
+    display: flex;
+    margin: auto;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 8% 15px 8%;
+    background-color: rgb(239, 236, 236);
+}
+
+#various-links > a {
+    text-decoration: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(96, 89, 89);
+}
+
+hr {
+    margin: 0;
+}
+
+#grid {
+    display: grid;
+    margin: auto;
+    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 50px;
+    width: 80%;
+    margin-bottom: 50px;
+}
+
+#grid > div {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 11px;
+    padding-bottom: 25px;
+}
+
+#grid > div > button:hover {
+    cursor: pointer;
+}
+
+.foot {
+    background-color: whitesmoke;
+    padding-bottom: 30px;
+}
+
+table {
+    margin: auto;
+    padding: 50px;
+}
+
+th, td {
+    width: 310px;
+    text-align: left;
+    list-style: none;
+}
+
+li {
+    margin-top: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+li > a {
+    text-decoration: none;
+    color: rgb(120, 114, 114);
+}
+
+li > a:hover {
+    text-decoration: underline;
+    color: #00008B;
+}
+
+.social-links {
+    display: flex;
+}
+
+.social-links img {
+    width: 20px;
+    margin-right: 25px;
+}
+
+.social-links img:hover {
+    width: 30px;
+    transition-duration: 100ms;
+}
+
+.foot > p {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 30%;
+}
+
+form > input {
+    margin: 10px;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+#submit {
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 30px;
+    text-align: center;
+    padding-inline: 20px;
+    background-color: #08779c;
+    color: white;
+    border: none;
+    font-family: s;
+    font-size: 35px;
+    padding-block: 5px;
+}
+
+#submit:hover {
+    cursor: pointer;
+}
